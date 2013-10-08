@@ -1,0 +1,22 @@
+#!/bin/bash
+
+. "${OPENSHIFT_REPO_DIR}.openshift/config/tomcat.conf"
+
+cd $OPENSHIFT_DATA_DIR
+
+#Install tomcat if needed
+
+if [[ -d ${TOMCAT_DIR_NAME} ]]; then
+	echo "Tomcat ${TOMCAT_VERSION} already installed."
+else
+	for version in $TOMCAT_BASE-*; do 
+		echo "Removing $version"
+		rm -rf $version 
+	done
+
+	echo "Downloading Apache Tomcat v${TOMCAT_VERSION} ..."
+	curl --insecure -o ${TOMCAT_DIR_NAME}.tar.gz "${TOMCAT_DOWNLOAD_URL}"
+	tar -xf ${TOMCAT_DIR_NAME}.tar.gz
+	rm -rf ${TOMCAT_DIR_NAME}.tar.gz
+	echo "Installed Apache Tomcat v${TOMCAT_VERSION} . Home directory : ${OPENSHIFT_DATA_DIR}/${TOMCAT_DIR_NAME}"
+fi

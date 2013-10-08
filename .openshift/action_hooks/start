@@ -1,0 +1,22 @@
+#!/bin/bash
+# The logic to start up your application should be put in this
+# script. The application will work only if it binds to
+# $OPENSHIFT_DIY_IP:8080 and OPENSHIFT_APP_DNS
+
+. "${OPENSHIFT_REPO_DIR}.openshift/config/tomcat.conf"
+
+set -x
+
+cd $OPENSHIFT_DATA_DIR/$TOMCAT_DIR_NAME
+
+#Set up server
+sed -ig 's/Server port="8005"/Server address="'$OPENSHIFT_DIY_IP'" port="15005"/g' conf/server.xml
+sed -ig 's/redirectPort="8443"/redirectPort="15443"/g' conf/server.xml
+sed -ig 's/Connector port/Connector address="'$OPENSHIFT_DIY_IP'" port/g' conf/server.xml
+sed -ig 's/port="8009"/port="15009"/g' conf/server.xml
+sed -ig 's/name="localhost"/name="'$OPENSHIFT_APP_DNS'"/' conf/server.xml
+sed -ig 's/defaultHost="localhost"/defaultHost="'$OPENSHIFT_DIY_IP'"/' conf/server.xml
+
+#Set up users
+sed -ig 's/<\/tomcat-users>/\n<role rolename="manager-gui"\/>\n<user username="tomcat" password="tomcat" roles="manager-gui"\/>\n<\/tomcat-users>/' conf/tomcat-users.xml
+bin/startup.sh
