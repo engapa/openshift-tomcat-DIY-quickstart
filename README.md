@@ -1,4 +1,4 @@
-OpenShift - Tomcat DIY - QuickStart
+OpenShift - Tomcat DIY - QuickStart [![Build Status](https://travis-ci.org/engapa/openshift-tomcat-diy-quickstart.png)](https://travis-ci.org/engapa/openshift-tomcat-diy-quickstart)
 ===================================
 ***
 
