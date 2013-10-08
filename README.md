@@ -7,11 +7,11 @@ This git repository helps you get up and running quickly with a Tomcat 7.0.42 in
 Create the server by RHC client
 -------------------------------
 
-<a href="http://openshift.redhat.com/">Create an account</a> and install the <a href="https://www.openshift.com/get-started">command-line client tools</a>.
+<a href="https://broker.ose.hi.inet/">Create an account</a> and install the <a href="https://www.openshift.com/get-started">command-line client tools</a>.
 
 Create a DIY application using **from-code** option:
 
-    rhc app create -a tomcat -t diy-0.1 --from-code "https://github.com/engapa/openshift-tomcat-diy-quickstart.git"
+    rhc app create -a tomcat -t diy-0.1 --from-code "https://github.com/engapa/openshift-tomcat-DIY-quickstart.git"
 
 That's it, you can now checkout your tomcat at:
     http://tomcat-$yournamespace.rhcloud.com
@@ -36,7 +36,7 @@ Add this entry to file /etc/openshift/quickstarts.json in broker host :
     "website":"http://tomcat.apache.org/",
     "language":"Java",
     "tags":"tomcat, server, web",
-    "initial_git_url":"https://github.com/engapa/openshift-tomcat-quickstart.git",
+    "initial_git_url":"https://github.com/engapa/openshift-tomcat-DIY-quickstart.git",
     "provider":"PDI",
     "admin_tags":[]
   }}
