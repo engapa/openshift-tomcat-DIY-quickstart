@@ -27,7 +27,7 @@ Add this entry to file /etc/openshift/quickstarts.json in broker host :
 
 ```json
 {"quickstart": {
-    "id":"3",
+    "id":"4",
     "href":"https://broker.ose.hi.inet/quickstarts/apache-tomcat",
     "name":"PDI - Apache Tomcat",
     "summary":"Apache Tomcat server on OpenShift.",
@@ -42,7 +42,7 @@ Add this entry to file /etc/openshift/quickstarts.json in broker host :
   }}
 ```
 
-An <a href="https://broker.ose.hi.inet/console/application_types/quickstart!3">item for this QuickStart</a> should be appear in OpenShift web console. You must to provide the name of this application only.
+An <a href="https://broker.ose.hi.inet/console/application_types/quickstart!4">item for this QuickStart</a> should be appear in OpenShift web console. You must to provide the name of this application only.
 
 License
 -------
